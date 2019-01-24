@@ -9,7 +9,8 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+        //console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+        return(`Hello my name is ${this.name} I am from ${this.location}`);
     }
 };
 
@@ -21,10 +22,10 @@ class Instructor extends Person {
         this.catchPhrase = instInfo.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about (${subject})`);
+        return(`Today we are learning about (${subject})`);
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return(`${student} receives a perfect score on ${subject}`);
     }
 };
 
@@ -36,17 +37,17 @@ class Student extends Person {
         this.favSubjects = stuInfo.favSubjects;
     }
     listsSubjects() {
-        console.log(`${this.name} likes ${this.favSubjects[0]}`);
-        console.log(`${this.name} likes ${this.favSubjects[1]}`);
-        console.log(`${this.name} likes ${this.favSubjects[2]}`);
+        return(`${this.name} likes ${this.favSubjects[0]}`);
+        return(`${this.name} likes ${this.favSubjects[1]}`);
+        return(`${this.name} likes ${this.favSubjects[2]}`);
     }
 
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return(`${this.name} has submitted a PR for ${subject}`);
     }
 
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return(`${this.name} has begun sprint challenge on ${subject}`);
     }
 };
 
@@ -57,15 +58,15 @@ class ProjectManager extends Instructor{
         this.favInstructor = pmInfo.favInstructor;
     }
     standUp(slackChannel){
-        console.log(`${this.gradClassName} announces to ${slackChannel} @channel standy times!`);
+        return(`${this.gradClassName} announces to ${slackChannel} @channel standy times!`);
     }
-    debugsCode(student, subject){
-        console.log();
+    debugsCode(patrick, subject){
+        return(`${this.name} debugs ${patrick.name}'s code on ${subject}`);
     }
 
 }
 
-const Josh = new Instructor({
+const josh = new Instructor({
     name: 'Josh',
     location: 'Utah',
     age: 76,
@@ -76,10 +77,10 @@ const Josh = new Instructor({
   });
 
 
-  const Patrick = new Student({
-    name: 'Josh',
-    location: 'Utah',
-    age: 76,
+  const patrick = new Student({
+    name: 'Patrick',
+    location: 'Colorado',
+    age: 28,
     gender: 'male',
     previousBackground: 'Cheese Maker',
     className: 'WEB17',
@@ -91,7 +92,7 @@ const Josh = new Instructor({
   });
 
 
-  const Angelo = new ProjectManager({
+  const angelo = new ProjectManager({
     name: 'Angelo',
     location: 'The Bay',
     age: 30,
@@ -105,4 +106,32 @@ const Josh = new Instructor({
   });
 
 
-  console.log(Josh.location);
+  
+  //Inheritance Testing
+
+  //Test Methods
+
+//speak
+console.log(josh.speak());
+console.log(angelo.speak());
+console.log(patrick.speak());
+
+//Instructor Methods
+//demo and grade
+console.log(josh.demo('Cheese'));
+console.log(josh.grade('Patrick', 'Cheese Curdling'));
+
+//Student Methods
+//listSubjects
+//PRA
+//Sprint Challenge
+console.log(patrick.listsSubjects());
+console.log(patrick.PRAssignment('Butter Churning'));
+console.log(patrick.sprintChallenge('Hide Tanning'));
+
+//ProjectManager Methods
+console.log(angelo.standUp('#Hired'));
+console.log(angelo.debugsCode(patrick, 'yodeling'))
+
+
+
