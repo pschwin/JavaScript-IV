@@ -37,9 +37,7 @@ class Student extends Person {
         this.favSubjects = stuInfo.favSubjects;
     }
     listsSubjects() {
-        return(`${this.name} likes ${this.favSubjects[0]}`);
-        return(`${this.name} likes ${this.favSubjects[1]}`);
-        return(`${this.name} likes ${this.favSubjects[2]}`);
+        return(`${this.name} likes ${this.favSubjects[0]} and ${this.favSubjects[1]} and ${this.favSubjects[1]}`);
     }
 
     PRAssignment(subject) {
@@ -118,20 +116,22 @@ console.log(patrick.speak());
 
 //Instructor Methods
 //demo and grade
-console.log(josh.demo('Cheese'));
-console.log(josh.grade('Patrick', 'Cheese Curdling'));
+console.log(josh.demo(josh.favLanguage));
+//Playing around with arguments
+console.log(josh.grade(patrick.name, 'Cheese Curdling'));
 
 //Student Methods
 //listSubjects
 //PRA
 //Sprint Challenge
 console.log(patrick.listsSubjects());
-console.log(patrick.PRAssignment('Butter Churning'));
+console.log(patrick.PRAssignment(patrick.favSubjects[2]));
 console.log(patrick.sprintChallenge('Hide Tanning'));
+
 
 //ProjectManager Methods
 console.log(angelo.standUp('#Hired'));
-console.log(angelo.debugsCode(patrick, 'yodeling'))
+console.log(angelo.debugsCode(patrick, patrick.favSubjects[2]))
 
 
 
